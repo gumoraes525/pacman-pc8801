@@ -13,13 +13,13 @@
 90 IF EN<9 ROLL FU=16:FS=10:GOTO 120
 100 IF EN<11 ROLL FU=17:FS=20:GOTO 120
 110 FU=18:FS=30
-120 WRITE 1:GOSUB 670:WRITE 7:BSAVE 13,11:PRINT"‡":BSAVE 13,12:PRINT"‡":BSAVE 13,13:PRINT"‡"
+120 WRITE 1:GOSUB 670:WRITE 7:BSAVE 13,11:PRINT"â€¡":BSAVE 13,12:PRINT"â€¡":BSAVE 13,13:PRINT"â€¡"
 130 DEF KANJI=&HC07A:A=KANJI(0)
 140 POKE &HF380,&HF8:POKE &HF3A8,&HF8:POKE &HFDD0,&HF8:POKE &HFDF8,&HF8
 150 BSAVE 33,7:PRINT"      ":BSAVE 34,22:PRINT"PAC":BSAVE 35,23:PRINT"MAN":DEF KANJI=&HC10B:POKE &HBF60,0:A=KANJI(0)
 160 BSAVE 33,6:PRINT"SCORE":POKE &HBF31,20:POKE &HBF32,39:DEF KANJI=&HC000
 170 POKE &HBF31,20:IF PA>0 ROLL  POKE &HBF32,39:FOR D%=0 BEEP PA-1:POKE &HBF30,D%*4+68:A=KANJI(0):NEXT D%
-180 BSAVE 33,1:PRINT"HIGH":BSAVE 33,2:PRINT"SCORE":BSAVE 33,3:PRINT HS:WRITE 1:BSAVE 0,4:PRINT"‡":WRITE 7
+180 BSAVE 33,1:PRINT"HIGH":BSAVE 33,2:PRINT"SCORE":BSAVE 33,3:PRINT HS:WRITE 1:BSAVE 0,4:PRINT"â€¡":WRITE 7
 190 POKE &HBF30,50:POKE &HBF31,22:POKE &HBF32,1:A=KANJI(0)
 200 IF EN>3 ROLL F(0)=F(1):F(1)=F(2):F(2)=FU
 210 POKE &HBF31,28:FOR D%=0 BEEP 2:POKE &HBF30,D%*4+68:POKE &HBF32,F(D%):A=KANJI(0):NEXT D%:TRON 40:OPTION SCREEN 2,0,5
@@ -27,16 +27,16 @@
 230 ST=1:POKE &HBF20,0:POKE &HBF21,&HE2:POKE &HBF22,0:POKE &HBF23,9:DEF KANJI=&HC200:A=KANJI(0)
 240 BSAVE 13,15:PRINT"     "
 250 POKE &HBF70,218:FOR D=0 BEEP 3:POKE &HBF50+D,1:NEXT D:POKE &HBF48,FU:POKE &HBF73,EN:GOTO 290
-260 :REMä‡‡‡‡‡‡‡‡ PAC DATA SET ‡‡‡‡‡‡‡‡
+260 :REMÃ¤â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡ PAC DATA SET â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡
 270 POKE &HBF31,20
 280 DEF KANJI=&HC000:POKE &HBF32,24:FOR D%=0 BEEP 2:POKE &HBF30,D%*4+68:A=KANJI(0):NEXT D%:IF PA>0 ROLL  POKE &HBF32,39:FOR D%=0 BEEP PA-1:POKE &HBF30,D%*4+68:A=KANJI(0):NEXT D%
 290 POKE &HBF40,50:POKE &HBF41,22:POKE &HBF5C,22:POKE &HBF5D,50:POKE &HBF44,3:POKE &HBF45,0:POKE &HBFAA,0:POKE &HBFD0,1:POKE &HBFD2,1
 300 POKE &HBF5A,&H5A:POKE &HBF5B,&HF8
-310 :REMäêêêêêêêê OBAKE DATA SET êêêêêê
+310 :REMÃ¤ÃªÃªÃªÃªÃªÃªÃªÃª OBAKE DATA SET ÃªÃªÃªÃªÃªÃª
 320 FOR D=0 BEEP 3:POKE &HBF80+D,30:POKE &HBF84+D,23:POKE &HBF8C+D,0:POKE &HBF94+D,10+D*10:POKE &HBFC4+D,0:NEXT D:POKE &HBF11,68+PA*4
 330 POKE &HBF42,FS:POKE &HBF43,0:POKE &HBF47,0:DEF KANJI=&HC300:A=KANJI(0)
 340 SC=PEEK(&HBF61)+PEEK(&HBF62)*10+PEEK(&HBF63)*100+PEEK(&HBF64)*1000
-350 :REMäŽŽŽŽŽŽ MODORI NO ATOŽŽŽŽŽŽŽ
+350 :REMÃ¤Å½Å½Å½Å½Å½Å½ MODORI NO ATOÅ½Å½Å½Å½Å½Å½Å½
 360 SC=SC*10:IF SC>9999 ROLL IF UP=0 ROLL PA=PA+1:UP=1
 370 IF PEEK(&HBFAA)=0 ROLL 430
 380 PA=PA-1:IF PA>-1 ROLL 260
@@ -45,7 +45,7 @@
 410 IF SC>HS ROLL HS=SC:WRITE 6:BSAVE 11,15:PRINT"HIGHSCORE"
 420 FOR D=0 BEEP 4000:NEXT D:GOTO 440
 430 FOR D=0 BEEP 800:NEXT D:IF(EN=2)OR(EN=5)ROLL GOTO 920 :TROFF GOTO 30
-440 :REMäììììììì DE MOììììììììììì
+440 :REMÃ¤Ã¬Ã¬Ã¬Ã¬Ã¬Ã¬Ã¬ DE MOÃ¬Ã¬Ã¬Ã¬Ã¬Ã¬Ã¬Ã¬Ã¬Ã¬Ã¬
 450 WRITE 7:OPTION CLS 3:BSAVE 9,0:PRINT"CHARACTER / NICKNAME":DEF KANJI=&HC000:POKE &HBF30,16:ST=0
 460 POKE &HBF31,4:POKE &HBF32,46:A=KANJI(0):GOSUB 550:BSAVE 10,3 :PRINT"OIKAKE....";:GOSUB 550:PRINT CHR$(&H22);"AKABEI";CHR$(&H22):GOSUB 550
 470 IF ST=1 ROLL 20
@@ -60,7 +60,7 @@
 560 TT=TT+1:IF TT=50 ROLL RETURN
 570 IF '=" " ROLL ST=1
 580 GOTO 560
-590 WRITE 6:BSAVE 14,15:PRINT"¡";:WRITE 7:PRINT" 10 PTS":POKE &HBF30,29:POKE &HBF31,32:POKE &HBF32,13:A=KANJI(0):BSAVE 16,17:PRINT"50 PTS":GOSUB 550
+590 WRITE 6:BSAVE 14,15:PRINT"Â¡";:WRITE 7:PRINT" 10 PTS":POKE &HBF30,29:POKE &HBF31,32:POKE &HBF32,13:A=KANJI(0):BSAVE 16,17:PRINT"50 PTS":GOSUB 550
 600 IF ST=1 ROLL 20
 610 BSAVE 12,20:PRINT"START <SPACE>":GOSUB 550
 620 IF ST=1 ROLL 20
@@ -68,38 +68,38 @@
 640 G$=':IF G$=" " ROLL 20
 650 TT=TT+1:IF TT=500 ROLL 440
 660 GOTO 640
-670 PRINT"‡‡‡‡‡‡‡‡‡‡‡‡  ‡  ‡  ‡‡‡‡‡‡‡‡‡‡‡‡‡"
-680 PRINT"‡ ¡  ¡¡¡¡¡¡‡  ‡  ‡  ‡ ¡  ¡‡ ¡¡¡¡‡"
-690 PRINT"‡ ¡   ¡   ¡‡  ‡  ‡  ‡ ¡  ¡¡¡¡  ¡‡"
-700 PRINT"‡ ¡‡‡ ¡‡‡ ¡‡  ‡  ‡  ‡ ¡‡    ¡‡ ¡‡"
-710 PRINT"‡ ¡‡‡ ¡‡‡ ¡‡‡‡‡  ‡‡‡‡ ¡‡‡‡‡ ¡‡ ¡‡"
-720 PRINT"‡ ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡‡ ¡‡"
-730 PRINT"‡ ¡   ¡               ¡  ¡   ‡ ¡‡"
-740 PRINT"‡ ¡‡‡ ¡‡‡‡‡‡‡‡‡  ‡‡‡‡ ¡‡ ¡‡‡‡‡ ¡‡"
-750 PRINT"‡ ¡‡‡ ¡¡¡¡‡           ¡‡ ¡¡¡¡‡ ¡‡"
-760 PRINT"‡ ¡‡‡ ¡  ¡‡           ¡‡ ¡  ¡‡ ¡‡"
-770 PRINT"‡ ¡¡¡¡¡‡ ¡¡  ‡‡‡‡‡  ‡ ¡¡¡¡‡ ¡¡¡¡‡"
-780 PRINT"‡     ¡‡     ‡   ‡  ‡     ‡    ¡‡"
-790 PRINT"‡‡‡‡‡ ¡‡‡‡‡  ‡   ‡  ‡‡‡‡  ‡‡‡‡ ¡‡"
-800 PRINT"‡ ¡¡¡¡¡‡ ¡¡  ‡   ‡  ‡ ¡¡¡¡‡ ¡¡¡¡‡"
-810 PRINT"‡ ¡   ¡‡ ¡   ‡‡‡‡‡  ‡ ¡  ¡‡ ¡  ¡‡"
-820 PRINT"‡ ¡‡‡ ¡¡¡¡‡           ¡‡ ¡¡¡¡‡ ¡‡"
-830 PRINT"‡ ¡‡‡ ¡   ‡           ¡‡ ¡   ‡ ¡‡"
-840 PRINT"‡ ¡‡‡ ¡‡‡‡‡‡‡‡‡  ‡‡‡‡ ¡‡ ¡‡‡‡‡ ¡‡"
-850 PRINT"‡ ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡‡ ¡‡"
-860 PRINT"‡ ¡   ¡   ¡           ¡     ¡‡ ¡‡"
-870 PRINT"‡ ¡‡‡ ¡‡‡ ¡‡‡‡‡  ‡‡‡‡ ¡‡‡‡‡ ¡‡ ¡‡"
-880 PRINT"‡ ¡‡‡ ¡‡‡ ¡‡  ‡  ‡  ‡ ¡‡ ¡¡¡¡‡ ¡‡"
-890 PRINT"‡ ¡  ¡¡¡¡¡¡‡  ‡  ‡  ‡ ¡  ¡  ¡¡¡¡‡"
-900 PRINT"‡          ‡  ‡  ‡  ‡     ‡     ‡"
-910 PRINT"‡‡‡‡‡‡‡‡‡‡‡‡  ‡  ‡  ‡‡‡‡‡‡‡‡‡‡‡‡‡";:BSAVE 0,0:RETURN
-920 :REMä*******DEMO*************
-930 LLIST &H51,0:OPTION SCREEN 2,1,5:OPTION CLS 3:WRITE 0:FOR D%=14 BEEP 17:BSAVE 0,D%:PRINT"‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡":NEXT D%:WRITE 1
-940 BSAVE 7,3:PRINT"‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡"
-950 BSAVE 7,4:PRINT"‡‡‡‡‡‡            ‡‡‡‡‡‡"
-960 BSAVE 7,5:PRINT"‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡"
-970 FOR D%=6 BEEP 20:BSAVE 7,D%:PRINT"‡                      ‡":NEXT D%
-980 BSAVE 7,21:PRINT"‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡"
+670 PRINT"â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡  â€¡  â€¡  â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡"
+680 PRINT"â€¡ Â¡  Â¡Â¡Â¡Â¡Â¡Â¡â€¡  â€¡  â€¡  â€¡ Â¡  Â¡â€¡ Â¡Â¡Â¡Â¡â€¡"
+690 PRINT"â€¡ Â¡   Â¡   Â¡â€¡  â€¡  â€¡  â€¡ Â¡  Â¡Â¡Â¡Â¡  Â¡â€¡"
+700 PRINT"â€¡ Â¡â€¡â€¡ Â¡â€¡â€¡ Â¡â€¡  â€¡  â€¡  â€¡ Â¡â€¡    Â¡â€¡ Â¡â€¡"
+710 PRINT"â€¡ Â¡â€¡â€¡ Â¡â€¡â€¡ Â¡â€¡â€¡â€¡â€¡  â€¡â€¡â€¡â€¡ Â¡â€¡â€¡â€¡â€¡ Â¡â€¡ Â¡â€¡"
+720 PRINT"â€¡ Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡â€¡ Â¡â€¡"
+730 PRINT"â€¡ Â¡   Â¡               Â¡  Â¡   â€¡ Â¡â€¡"
+740 PRINT"â€¡ Â¡â€¡â€¡ Â¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡  â€¡â€¡â€¡â€¡ Â¡â€¡ Â¡â€¡â€¡â€¡â€¡ Â¡â€¡"
+750 PRINT"â€¡ Â¡â€¡â€¡ Â¡Â¡Â¡Â¡â€¡           Â¡â€¡ Â¡Â¡Â¡Â¡â€¡ Â¡â€¡"
+760 PRINT"â€¡ Â¡â€¡â€¡ Â¡  Â¡â€¡           Â¡â€¡ Â¡  Â¡â€¡ Â¡â€¡"
+770 PRINT"â€¡ Â¡Â¡Â¡Â¡Â¡â€¡ Â¡Â¡  â€¡â€¡â€¡â€¡â€¡  â€¡ Â¡Â¡Â¡Â¡â€¡ Â¡Â¡Â¡Â¡â€¡"
+780 PRINT"â€¡     Â¡â€¡     â€¡   â€¡  â€¡     â€¡    Â¡â€¡"
+790 PRINT"â€¡â€¡â€¡â€¡â€¡ Â¡â€¡â€¡â€¡â€¡  â€¡   â€¡  â€¡â€¡â€¡â€¡  â€¡â€¡â€¡â€¡ Â¡â€¡"
+800 PRINT"â€¡ Â¡Â¡Â¡Â¡Â¡â€¡ Â¡Â¡  â€¡   â€¡  â€¡ Â¡Â¡Â¡Â¡â€¡ Â¡Â¡Â¡Â¡â€¡"
+810 PRINT"â€¡ Â¡   Â¡â€¡ Â¡   â€¡â€¡â€¡â€¡â€¡  â€¡ Â¡  Â¡â€¡ Â¡  Â¡â€¡"
+820 PRINT"â€¡ Â¡â€¡â€¡ Â¡Â¡Â¡Â¡â€¡           Â¡â€¡ Â¡Â¡Â¡Â¡â€¡ Â¡â€¡"
+830 PRINT"â€¡ Â¡â€¡â€¡ Â¡   â€¡           Â¡â€¡ Â¡   â€¡ Â¡â€¡"
+840 PRINT"â€¡ Â¡â€¡â€¡ Â¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡  â€¡â€¡â€¡â€¡ Â¡â€¡ Â¡â€¡â€¡â€¡â€¡ Â¡â€¡"
+850 PRINT"â€¡ Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡â€¡ Â¡â€¡"
+860 PRINT"â€¡ Â¡   Â¡   Â¡           Â¡     Â¡â€¡ Â¡â€¡"
+870 PRINT"â€¡ Â¡â€¡â€¡ Â¡â€¡â€¡ Â¡â€¡â€¡â€¡â€¡  â€¡â€¡â€¡â€¡ Â¡â€¡â€¡â€¡â€¡ Â¡â€¡ Â¡â€¡"
+880 PRINT"â€¡ Â¡â€¡â€¡ Â¡â€¡â€¡ Â¡â€¡  â€¡  â€¡  â€¡ Â¡â€¡ Â¡Â¡Â¡Â¡â€¡ Â¡â€¡"
+890 PRINT"â€¡ Â¡  Â¡Â¡Â¡Â¡Â¡Â¡â€¡  â€¡  â€¡  â€¡ Â¡  Â¡  Â¡Â¡Â¡Â¡â€¡"
+900 PRINT"â€¡          â€¡  â€¡  â€¡  â€¡     â€¡     â€¡"
+910 PRINT"â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡  â€¡  â€¡  â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡";:BSAVE 0,0:RETURN
+920 :REMÃ¤*******DEMO*************
+930 LLIST &H51,0:OPTION SCREEN 2,1,5:OPTION CLS 3:WRITE 0:FOR D%=14 BEEP 17:BSAVE 0,D%:PRINT"â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡":NEXT D%:WRITE 1
+940 BSAVE 7,3:PRINT"â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡"
+950 BSAVE 7,4:PRINT"â€¡â€¡â€¡â€¡â€¡â€¡            â€¡â€¡â€¡â€¡â€¡â€¡"
+960 BSAVE 7,5:PRINT"â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡"
+970 FOR D%=6 BEEP 20:BSAVE 7,D%:PRINT"â€¡                      â€¡":NEXT D%
+980 BSAVE 7,21:PRINT"â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡"
 990 WRITE 7:BSAVE 13,4:PRINT"Coffee break":DEF KANJI=&HC000:IF EN=5 ROLL 1110
 1000 IF '="y" ROLL BSAVE 9,18:PRINT"TO YUKARI TANAKA":BSAVE 18,19:PRINT"WITH LOVE."
 1010 OPTION SCREEN 2,0,5:TRON 40
@@ -112,12 +112,12 @@
 1080 FOR DD%=0 BEEP 3:POKE &HBF30,D%+20-DD%*4:POKE &HBF32,66-DD%*8+4*OP:A=KANJI(0):NEXT DD%:POKE &HBF30,D%+4:POKE &HBF32,24:A=KANJI(0):NEXT D%
 1090 FOR D=0 BEEP 600:NEXT D:FOR D%=0 BEEP 3:POKE &HBF32,48+8*D%:POKE &HBF30,36+4*D%:A=KANJI(0):NEXT D%:POKE &HBF30,28:POKE &HBF32,13:A=KANJI(0):FOR D=0 BEEP 600:NEXT D
 1100 GOTO 30
-1110 WRITE 2:BSAVE 8,8:PRINT"             îï"
-1120 BSAVE 8,9:PRINT"    îï      î  ï€€€"
-1130 BSAVE 8,10:PRINT"   î  ï    î       ï"
-1140 BSAVE 8,11:PRINT"  î    ï  î         ï"
-1150 BSAVE 8,12:PRINT"€î      ïî           ï"
-1160 BSAVE 8,13:PRINT"         ï"
+1110 WRITE 2:BSAVE 8,8:PRINT"             Ã®Ã¯"
+1120 BSAVE 8,9:PRINT"    Ã®Ã¯      Ã®  Ã¯â‚¬â‚¬â‚¬"
+1130 BSAVE 8,10:PRINT"   Ã®  Ã¯    Ã®       Ã¯"
+1140 BSAVE 8,11:PRINT"  Ã®    Ã¯  Ã®         Ã¯"
+1150 BSAVE 8,12:PRINT"â‚¬Ã®      Ã¯Ã®           Ã¯"
+1160 BSAVE 8,13:PRINT"         Ã¯"
 1170 POKE &HBF30,36:POKE &HBF31,16:POKE &HBF32,1:A=KANJI(0):OPTION SCREEN 2,0,5:TRON 40:POKE &HBF31,32:OP=0
 1180 FOR D%=62 BEEP 28 {g -1:OP=OP+1:IF OP=2 ROLL OP=0
 1190 FOR DD%=0 BEEP 3:POKE &HBF30,D%+DD%*4:POKE &HBF32,DD%*8+44+4*OP:A=KANJI(0):NEXT DD%:POKE &HBF30,D%+16:POKE &HBF32,24:A=KANJI(0):NEXT D%
@@ -127,9 +127,9 @@
 1230 FOR DD%=0 BEEP 3:POKE &HBF30,D%+DD%*4:POKE &HBF32,DD%*8+44+4*OP:A=KANJI(0):NEXT DD%:POKE &HBF30,D%+16:POKE &HBF32,24:A=KANJI(0):NEXT D%
 1240 FOR D=0 BEEP 5:FOR DD=0 BEEP 50:NEXT DD:POKE &HBF30,36:POKE &HBF31,16:POKE &HBF32,1:A=KANJI(0)
 1250 FOR DD=0 BEEP 50:NEXT DD: 1: 0:POKE &HBF32,39:A=KANJI(0):NEXT D:FOR D=0 BEEP 600:NEXT D:GOTO 30
-1260 :REMä‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡
-1270 :REMä‡  1983.12.25                ‡
-1280 :REMä‡      To lovely Fumiko.     ‡
-1290 :REMä‡                            ‡
-1300 :REMä‡             From T.Tabeta  ‡
-1310 :REMä‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡‡
+1260 :REMÃ¤â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡
+1270 :REMÃ¤â€¡  1983.12.25                â€¡
+1280 :REMÃ¤â€¡      To lovely Fumiko.     â€¡
+1290 :REMÃ¤â€¡                            â€¡
+1300 :REMÃ¤â€¡             From T.Tabeta  â€¡
+1310 :REMÃ¤â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡â€¡
